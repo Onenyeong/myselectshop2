@@ -19,16 +19,6 @@ import java.util.List;
 public class ProductController {
     private final ProductService productService;
 
-    @GetMapping("/products")
-    public Page<ProductResponseDto> getProducts(
-            @RequestParam("page") int page,
-            @RequestParam("size") int size,
-            @RequestParam("sortBy") String sortBy,
-            @RequestParam("isAsc") boolean isAsc,
-            @AuthenticationPrincipal UserDetailsImpl userDetails) {
-        return productService.getProducts(userDetails.getUser(), page - 1, size, sortBy, isAsc);
-    }
-
     @GetMapping("/admin/products")
     public List<ProductResponseDto> getAllProducts() {
         return productService.getAllProducts();
@@ -46,4 +36,17 @@ public class ProductController {
         return productService.updateProduct(id, requestDto);
     }
 
+    @GetMapping("/products")
+    public Page<ProductResponseDto> getProducts(
+            @RequestParam("page") int page,
+            @RequestParam("size") int size,
+            @RequestParam("sortBy") String sortBy,
+            @RequestParam("isAsc") boolean isAsc,
+            @AuthenticationPrincipal UserDetailsImpl userDetails) {
+        return productService.getProducts(userDetails.getUser(), page - 1, size, sortBy, isAsc);
+    }
+    @PostMapping("/products/{productId}/folder")
+    public void addFolder(@PathVariable Long productId , @RequestParam Long folderId, @AuthenticationPrincipal UserDetailsImpl userDetails){
+        productService.addFolder(productId,folderId,userDetails.getUser());
+    }
 }
