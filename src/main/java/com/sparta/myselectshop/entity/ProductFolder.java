@@ -23,6 +23,7 @@ public class ProductFolder {
     @JoinColumn(name = "folder_id", nullable = false)
     private Folder folder;
 
+
     public ProductFolder(Product product, Folder folder) {
         this.product = product;
         this.folder = folder;

@@ -40,8 +40,10 @@ public class Product extends Timestamped {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
+
     @OneToMany(mappedBy = "product")
     private List<ProductFolder> productFolderList = new ArrayList<>();
+
     public Product(ProductRequestDto requestDto, User user) {
         this.title = requestDto.getTitle();
         this.image = requestDto.getImage();
