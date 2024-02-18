@@ -40,7 +40,7 @@ public class UserDetailsImpl implements UserDetails {
         Collection<GrantedAuthority> authorities = new ArrayList<>();
         authorities.add(simpleGrantedAuthority);
 
-        return authorities;
+        return null;
     }
 
     @Override
