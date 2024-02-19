@@ -86,7 +86,6 @@ public class ProductService {
         Product product = productRepository.findById(productId).orElseThrow(() ->
                 new NullPointerException("해당 상품이 존재하지 않습니다.")
         );
-
         Folder folder = folderRepository.findById(folderId).orElseThrow(() ->
                 new NullPointerException("해당 폴더가 존재하지 않습니다.")
                 );
@@ -100,6 +99,8 @@ public class ProductService {
         }
         productFolderRepository.save(new ProductFolder(product,folder));
     }
+    
+
 
     public Page<ProductResponseDto> getProductsInFolder(Long foldersId, int page, int size, String sortBy, boolean isAsc, User user) {
 
