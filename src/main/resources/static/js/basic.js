@@ -292,7 +292,7 @@ function addFolder() {
         }
         $('#container2').removeClass('active');
         alert('성공적으로 등록되었습니다.');
-        window.location.reload();
+        window.location.href = '/';
     })
         .fail(function(xhr, textStatus, errorThrown) {
             alert("중복된 폴더입니다.");
@@ -367,7 +367,7 @@ function addInputForProductToFolder(productId, button) {
                         return;
                     }
                     alert('성공적으로 등록되었습니다.');
-                    window.location.reload();
+                    window.location.href = '/';
                 })
                     .fail(function(xhr, textStatus, errorThrown) {
                         alert("중복된 폴더입니다.");
@@ -413,7 +413,7 @@ function setMyprice() {
             // 5. 성공적으로 등록되었음을 알리는 alert를 띄운다.
             alert('성공적으로 등록되었습니다.');
             // 6. 창을 새로고침한다. window.location.reload();
-            window.location.reload();
+            window.location.href = '/';
         },
         error(error, status, request) {
             logout();
