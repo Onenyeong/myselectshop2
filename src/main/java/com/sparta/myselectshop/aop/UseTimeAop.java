@@ -30,7 +30,7 @@ public class UseTimeAop {
     private void folder() {}
     @Pointcut("execution(* com.sparta.myselectshop.naver.controller.NaverApiController.*(..))")
     private void naver() {}
-//
+
     @Around("product() || folder() || naver()")
     public Object execute(ProceedingJoinPoint joinPoint) throws Throwable {
         // 측정 시작 시간
